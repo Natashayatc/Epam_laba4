@@ -1,48 +1,45 @@
 package com.epam.natasha_yatcenya.j04_collection;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Surface {
-
-    private Set<Point> pointList = new HashSet<>();
-    private Set<Line> lineList = new HashSet<>();
+    private Set<Point> points = new HashSet<>();
+    private Set<Line> lines = new HashSet<>();
 
     public Surface() {
     }
 
     public void addPoint(Point point) {
+        points.add(point);
+    }
 
-
-        if (point == null) {
-            throw new IllegalArgumentException("point can't be null");
-        }
-
-        pointList.add(point);
+    public void addPoints(List<Point> points) {
+        this.points.addAll(points);
     }
 
     public void addLine(Line line) {
-
-        if (line == null) {
-            throw new IllegalArgumentException("point can't be null");
-        }
-
-        lineList.add(line);
+        lines.add(line);
     }
 
     @Override
     public String toString() {
         return "Surface{" +
-                "pointList=" + pointList +
-                ", lineList=" + lineList +
+                "points=" + points +
+                ", lines=" + lines +
                 '}';
     }
 
-    public Set<Line> getLineList() {
-        return lineList;
+    public Set<Line> getLines() {
+        return lines;
     }
 
-    public Set<Point> getPointList() {
-        return pointList;
+    public Set<Point> getPoints() {
+        return points;
+    }
+
+    public void addLines(List<Line> lines) {
+        this.lines.addAll(lines);
     }
 }
