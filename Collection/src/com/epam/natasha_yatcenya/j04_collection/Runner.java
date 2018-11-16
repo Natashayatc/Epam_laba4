@@ -8,10 +8,10 @@ public class Runner {
 
 	public static void main(String[] args) {
 
-		String fileName = "пам.txt";
+		String fileName = "/Users/nikitastepanov/IdeaProjects/Rsreu/Epam_laba4/Collection/src/com/epam/natasha_yatcenya/j04_collection/integers.txt";
 		try {
-			CSVReader fileReader = new CSVReader(fileName);
-			List<Set<Integer>> sets = fileReader.readListSets();
+			CSVReader fileReader = new CSVReader();
+			List<Set<Integer>> sets = fileReader.readListSets(fileName);
 			new RunnerLogic().doLogic(sets);
 		} catch (IOException ex) {
 			System.err.println(ex);

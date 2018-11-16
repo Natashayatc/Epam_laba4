@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class RandomPointGeneratorImpl implements PointGenerator {
 
+    private Random random = new Random();
     private int min = 10;
     private int max = 10;
 
@@ -14,9 +15,8 @@ public class RandomPointGeneratorImpl implements PointGenerator {
         this.min = min;
         this.max = max;
     }
-    public Point generate() {
-        Random random = new Random();
 
+    public Point generate() {
         int x = random.nextInt(max - min + 1) + min;
         int y = random.nextInt(max - min + 1) + min;
 

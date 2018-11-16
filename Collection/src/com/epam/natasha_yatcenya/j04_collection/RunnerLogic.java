@@ -3,6 +3,8 @@ package com.epam.natasha_yatcenya.j04_collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class RunnerLogic {
 
@@ -23,17 +25,14 @@ public class RunnerLogic {
 	}
 
 	private Set<Integer> crossing(Set<Integer> firstSet, Set<Integer> secondSet) {
-		Set<Integer> result = new TreeSet<>();
-		result.addAll(firstSet);
+		Set<Integer> result = new TreeSet<>(firstSet);
 		result.retainAll(secondSet);
 		return result;
 	}
 
 	private Set<Integer> unite(Set<Integer> firstSet, Set<Integer> secondSet) {
-		Set<Integer> result = new TreeSet<>();
-		result.addAll(firstSet);
-		result.addAll(secondSet);
-		return result;
+		return Stream.of(firstSet, secondSet)
+				.flatMap(Set::stream)
+				.collect(Collectors.toSet());
 	}
-
 }
